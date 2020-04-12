@@ -21,11 +21,29 @@ class App extends Component {
     })
   });
   }
+
+  search(key) 
+  {
+    console.log(key);
+    if(key!="") {
+    fetch('http://newsapi.org/v2/everything?q='+key+'&from=2020-04-10&to=2020-04-10&sortBy=popularity&apiKey=b7b56979d49748f5a8640f3866019476')
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson) => {
+    this.setState({
+      articles:myJson.articles
+    })
+  
+  });
+  }
+  }
   
   render() {
     return (
       <div className="App">
-        <input type="text" className="input" placeholder="Search..." />
+        <input type="text" onChange={(event) =>this.search(event.target.value)} className="input" placeholder="Search..." />
+        <h1>Top feed</h1>
         
         {this.state.articles.map((item,index)=>{
           return (
