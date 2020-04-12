@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class App extends Component {
   }
  
   componentDidMount(){
-    fetch('http://newsapi.org/v2/everything?q=apple&from=2020-04-10&to=2020-04-10&sortBy=popularity&apiKey=b7b56979d49748f5a8640f3866019476')
+    fetch('http://newsapi.org/v2/everything?q=india&from=2020-04-10&to=2020-04-10&sortBy=popularity&apiKey=b7b56979d49748f5a8640f3866019476')
   .then((response) => {
     return response.json();
   })
@@ -41,23 +41,40 @@ class App extends Component {
   
   render() {
     return (
+      
       <div className="App">
-        <input type="text" onChange={(event) =>this.search(event.target.value)} className="input" placeholder="Search..." />
-        <h1>Top feed</h1>
+        <h1>TOP NEWS</h1>
+        <h5>Powered by NewsApi</h5>
+        
+          <div class="search"><div>
+            <input type="text" class="searchTerm" placeholder="What are you looking for?" onChange={(event) =>this.search(event.target.value)}></input>
+          </div>
+          
+        </div>
+        {/* <input type="text" onChange={(event) =>this.search(event.target.value)} className="search" placeholder="Search..." class="search" /> */}
+        
         
         {this.state.articles.map((item,index)=>{
           return (
-            <html>
-              <body>
+            <div>
+
+              <div class="box-shadow">
+              <img src={item.urlToImage}  style={{width:'100%'}}></img>
+              <div class="container">
+                <h4>{item.title}</h4><br></br>
+              <p>{item.description}
+              <a href={item.url}>Read more</a></p>
+              </div>
+              </div>
+          
               
-              
-              <h1>{item.title}</h1><br></br>
+              {/* <h1>{item.title}</h1><br></br>
               <img src={item.urlToImage} style={{width:'300px'}}/><br></br>
               {item.description}
               <a href={item.url}>Read more</a>
-              <hr></hr>
-              </body>
-            </html>
+              <hr></hr> */}
+              <br></br>
+            </div>
             
           )
         })}

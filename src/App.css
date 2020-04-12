@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 .App {
   text-align: center;
+  background:#00203FFF; 
+  color: #ADEFD1FF;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .App-logo {
@@ -14,19 +21,108 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background:#00203FFF;  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #00203FFF;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #00203FFF;
 }
+
+.box-shadow {
+    
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background:#ADEFD1FF;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  padding: 10px;
+  color:#00203FFF;
+}
+
+
+/* 
+.flexbox {
+  background: linear-gradient(155deg, #55c7ed, #2bb3e0, #3bc1ed);  
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.search {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+.search > div {
+  
+  display: inline-block;
+  position: relative;
+}
+
+.search > div:after {
+  
+  content: "";
+  background: white;
+  width: 4px;
+  height: 20px;
+  position: absolute;
+  top: 40px;
+  right: 2px;
+  transform: rotate(135deg);
+  box-shadow: 1px 0 #0091c2;
+}
+
+.search > div > input {
+  color: white;
+  font-size: 16px;
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  border: solid 3px white;
+  outline: none;
+  border-radius: 35px;
+  box-shadow: 0 1px #0091c2;
+  transition: width 0.5s;
+}
+
+.search > div > input::placeholder {
+  color: #efefef;
+  opacity: 1;
+}
+
+.search > div > input::-ms-placeholder {
+  color: #efefef;
+}
+
+.search > div > input::-ms-input-placeholder {
+  color: #efefef;
+}
+
+.search > div > input:focus,
+.search > div > input:valid {
+  width: 250px;
+}
+
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +132,4 @@
     transform: rotate(360deg);
   }
 }
+
